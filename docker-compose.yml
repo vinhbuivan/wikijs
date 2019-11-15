@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  mongodb:
+    image: mongo:3.6
+    volumes:
+      - /opt/wikijs/mongodb/conf:/etc/mongo
+      - /opt/wikijs/mongodb/data:/data/db/
+    restart: always
+    environment:
+      - TZ=America/Lima
+  wikijs:
+    image: requarks/wiki
+    restart: always
+    volumes:
+      - /opt/wikijs/wikijs/data:/opt/wikijs/data
+      - /opt/wikijs/wikijs/repo:/opt/wikijs/repo
+      - /opt/wikijs/wikijs/config.yml:/var/wiki/config.yml
+      - /opt/wikijs/wikijs/certs:/var/wiki/certs
+    depends_on:
+      - mongodb
+    environment:
+      - TZ=America/Lima
+    ports:
+      - 8080:3000
