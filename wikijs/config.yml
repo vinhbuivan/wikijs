@@ -1,0 +1,77 @@
+title: Company's Wiki
+host: 'http://wikijs.localhost.com:8080'
+port: 3000
+paths:
+  repo: /opt/wikijs/repo
+  data: /opt/wikijs/data
+uploads:
+  maxImageFileSize: 3
+  maxOtherFileSize: 100
+lang: en
+langRtl: false
+public: true
+auth:
+  defaultReadAccess: false
+  local:
+    enabled: true
+  google:
+    enabled: false
+    clientId: GOOGLE_CLIENT_ID
+    clientSecret: GOOGLE_CLIENT_SECRET
+  microsoft:
+    enabled: false
+    clientId: MS_APP_ID
+    clientSecret: MS_APP_SECRET
+  facebook:
+    enabled: false
+    clientId: FACEBOOK_APP_ID
+    clientSecret: FACEBOOK_APP_SECRET
+  github:
+    enabled: false
+    clientId: GITHUB_CLIENT_ID
+    clientSecret: GITHUB_CLIENT_SECRET
+  slack:
+    enabled: false
+    clientId: SLACK_CLIENT_ID
+    clientSecret: SLACK_CLIENT_SECRET
+  ldap:
+    enabled: true
+    url: 'ldap://$ACTIVE_DIRECTORY_IP:389' #Active Directory IP
+    bindDn: CN=owncloud,OU=IT Services,DC=domain,DC=com #BindDN
+    bindCredentials: 
+    searchBase: 'DC=domain,DC=com'
+    searchFilter: '(sAMAccountName={{username}})'
+    tlsEnabled: false
+    tlsCertPath: '/var/wiki/certs/server.crt' #SSL certificate for LDAPS
+  azure:
+    enabled: false
+    clientId: APP_ID
+    clientSecret: APP_SECRET_KEY
+    resource: 00000002-0000-0000-c000-000000000000
+    tenant: YOUR_TENANT.onmicrosoft.com
+  oauth2:
+    enabled: false
+    clientId: OAUTH2_CLIENT_ID
+    clientSecret: OAUTH2_CLIENT_SECRET
+    authorizationURL: OAUTH2_AUTH_URL
+    tokenURL: OAUTH2_TOKEN_URL
+sessionSecret: 9def8a4ed27ccffe1a667fb33a72278a0d745b6c00e6b075f031f5b2d3d69071
+db: 'mongodb://mongodb:27017/wiki'
+git: false
+features:
+  linebreaks: true
+  mathjax: true
+externalLogging:
+  bugsnag: false
+  loggly: false
+  papertrail: false
+  rollbar: false
+  sentry: false
+theme:
+  primary: indigo
+  alt: blue-grey
+  viewSource: all
+  footer: blue-grey
+  code:
+    dark: true
+    colorize: true
